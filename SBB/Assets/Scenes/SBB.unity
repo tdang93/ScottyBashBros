@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657725, g: 0.49641198, b: 0.5748184, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641156, b: 0.5748181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,8 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfeb0fc76d4cd0438c5e196d317a334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 690527923}
-  fist: {fileID: 692115513}
 --- !u!65 &79065987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -500,17 +498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b60767acfd2704c8458359c9d4f1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fist: {fileID: 692115513}
-  left: 0
   speed: 20
   jumpSpeed: 150
-  dropSpeed: 200
-  moveVertical: 0
-  moveHorizontal: 0
   onGround: 0
-  onPlatform: 0
-  C: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!54 &167741968
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -635,8 +625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfeb0fc76d4cd0438c5e196d317a334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1240427358}
-  fist: {fileID: 0}
 --- !u!65 &405123684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -914,8 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfeb0fc76d4cd0438c5e196d317a334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 167741967}
-  fist: {fileID: 692115513}
 --- !u!1 &682027335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,8 +999,8 @@ GameObject:
   - component: {fileID: 690527927}
   - component: {fileID: 690527926}
   - component: {fileID: 690527925}
-  - component: {fileID: 690527923}
   - component: {fileID: 690527924}
+  - component: {fileID: 690527923}
   m_Layer: 0
   m_Name: player2
   m_TagString: Player
@@ -1041,26 +1027,17 @@ Transform:
 --- !u!114 &690527923
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114353662316329618, guid: 86d000ccc87122145876eabc2e7e3424,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 690527921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b60767acfd2704c8458359c9d4f1db, type: 3}
+  m_Script: {fileID: 11500000, guid: 452449d2f618eac4ebc6806dd6dc46f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fist: {fileID: 0}
-  left: 0
-  speed: 20
-  jumpSpeed: 150
-  dropSpeed: 200
-  moveVertical: 0
-  moveHorizontal: 0
+  speed: 0
+  jumpSpeed: 0
   onGround: 0
-  onPlatform: 0
-  C: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!54 &690527924
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1443,8 +1420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfeb0fc76d4cd0438c5e196d317a334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1139552238}
-  fist: {fileID: 0}
 --- !u!65 &1099208662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1548,17 +1523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b60767acfd2704c8458359c9d4f1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fist: {fileID: 0}
-  left: 0
   speed: 20
   jumpSpeed: 150
-  dropSpeed: 200
-  moveVertical: 0
-  moveHorizontal: 0
   onGround: 0
-  onPlatform: 0
-  C: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!54 &1139552239
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1674,9 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c568720e2c99943906611d6cacf670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1139552238}
-  Fist: {fileID: 0}
-  combat: {fileID: 1099208661}
+  P1: {fileID: 0}
 --- !u!65 &1151436062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1780,17 +1745,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b60767acfd2704c8458359c9d4f1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fist: {fileID: 0}
-  left: 0
   speed: 20
   jumpSpeed: 150
-  dropSpeed: 200
-  moveVertical: 0
-  moveHorizontal: 0
   onGround: 0
-  onPlatform: 0
-  C: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!54 &1240427359
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2093,9 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c568720e2c99943906611d6cacf670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1240427358}
-  Fist: {fileID: 0}
-  combat: {fileID: 405123683}
+  P1: {fileID: 0}
 --- !u!65 &1577154612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2190,12 +2145,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1642682058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c568720e2c99943906611d6cacf670, type: 3}
+  m_Script: {fileID: 11500000, guid: 173d7c70d66bbb74296aa9da43c07028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 690527923}
-  Fist: {fileID: 0}
-  combat: {fileID: 79065986}
+  P2: {fileID: 690527923}
 --- !u!65 &1642682061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2293,9 +2246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c568720e2c99943906611d6cacf670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 167741967}
-  Fist: {fileID: 0}
-  combat: {fileID: 652147221}
+  P1: {fileID: 167741967}
 --- !u!65 &1663169912
 BoxCollider:
   m_ObjectHideFlags: 0

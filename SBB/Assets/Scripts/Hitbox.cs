@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hitbox : MonoBehaviour {
-    public PlayerController parent;
+    //public PlayerController parent;
     Collider C;
     // Use this for initialization
     void Start () {
-        C = parent.GetComponent<Collider>();
+        C = transform.parent.GetComponent<Collider>();
     }
 	
 	// Update is called once per frame

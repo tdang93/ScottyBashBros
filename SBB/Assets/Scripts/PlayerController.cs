@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        TestInputs();
+        //TestInputs();
     }
 
     // Update is called once per frame

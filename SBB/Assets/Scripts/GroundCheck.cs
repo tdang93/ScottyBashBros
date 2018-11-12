@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour {
-    public PlayerController parent; 
+    public PlayerController P1; 
    // public float speed;
 
    // private Rigidbody rb;
@@ -25,7 +25,7 @@ public class GroundCheck : MonoBehaviour {
         if (other.gameObject.tag == "Ground")
         {
             Debug.Log("Ground Check Works!");
-            parent.onGround = true;
+            P1.onGround = true;
             //Vector3 movement = new Vector3(moveHorizontal, 1.0f, 0.0f);
 
            // rb.AddForce(movement * speed);
@@ -37,7 +37,7 @@ public class GroundCheck : MonoBehaviour {
         if (other.gameObject.tag == "Ground")
         {
             Debug.Log("Ground Check Exitting!");
-            parent.onGround = false;
+            P1.onGround = false;
         }
     }
 }
