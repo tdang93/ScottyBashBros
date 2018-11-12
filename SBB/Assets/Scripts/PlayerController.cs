@@ -4,89 +4,80 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public GameObject Fist;
+
+    public bool left;
     public float speed;
     public float jumpSpeed;
+    public float dropSpeed;
+    //public float punchSpeed;
+    public float moveVertical = 0;
+    public float moveHorizontal = 0;
     public bool onGround = false;
+    public bool onPlatform = false;
+    public Collider C;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
         rb = GetComponent<Rigidbody>();
+        C = GetComponent<Collider>();
 	}
+	
+	// Update is called once per frame
+	public void FixedUpdate () {
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
 
-    private void Update()
-    {
-        //TestInputs();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate () {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = 0;
-
-        if (onGround == true)
+        if (onGround == true || onPlatform == true)
         {
-            moveVertical = Input.GetAxis("Vertical");
             Vector3 jump = new Vector3(0.0f, moveVertical, 0.0f);
             rb.AddForce(jump * jumpSpeed);
         }
-        else
+        if(onPlatform == true)
         {
-            moveVertical = 0;
-
+            if(moveVertical < 0)
+            {
+                C.enabled = false;
+                Vector3 drop = new Vector3(0.0f, -moveVertical, 0.0f);
+                rb.AddForce(drop * dropSpeed);
+                Debug.Log("Drop Works!");
+            }
         }
 
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
 
         rb.AddForce(movement * speed);
+
+        if (Input.GetAxis("Fire1") != 0)
+        {
+            
+            Vector3 punch = new Vector3(-0.5f, 0.0f, 0.0f);
+
+            Vector3 recoil = new Vector3(0.5f, 0.0f, 0.0f);
+            Fist.transform.Translate(punch);
+            Fist.transform.Translate(recoil);
+            Debug.Log("PUNCH");
+            //Rigidbody rb = Fist.GetComponent<Rigidbody>();
+            //rb.AddForce(punch * punchSpeed);
+        }
+
+        if (Input.GetAxis("Fire2") != 0)
+        {
+
+            Vector3 punch = new Vector3(0.5f, 0.0f, 0.0f);
+
+            Vector3 recoil = new Vector3(-0.5f, 0.0f, 0.0f);
+            Fist.transform.Translate(punch);
+            Fist.transform.Translate(recoil);
+            Debug.Log("PUNCH");
+            //Rigidbody rb = Fist.GetComponent<Rigidbody>();
+            //rb.AddForce(punch * punchSpeed);
+        }
     }
 
-    void TestInputs()
-    {
-        if(Input.GetAxisRaw("P1 H") != 0)
-        {
-            Debug.Log("P1 H");
-        }
-        if(Input.GetAxisRaw("P1 V") != 0)
-        {
-            Debug.Log("P1 V");
-        }
-        if(Input.GetAxisRaw("P1 A") != 0)
-        {
-            Debug.Log("P1 A");
-        }
-        if (Input.GetAxisRaw("P1 B") != 0)
-        {
-            Debug.Log("P1 B");
-        }
-        if (Input.GetAxisRaw("P1 X") != 0)
-        {
-            Debug.Log("P1 X");
-        }
-        if (Input.GetAxisRaw("P1 Y") != 0)
-        {
-            Debug.Log("P1 Y");
-        }
-        if (Input.GetAxisRaw("Mouse X") != 0)
-        {
-            Debug.Log("Mouse X");
-        }
-        if (Input.GetAxisRaw("Mouse Y") != 0)
-        {
-            Debug.Log("Mouse Y");
-        }
-        if(Input.GetAxisRaw("Mouse ScrollWheel") != 0)
-        {
-            Debug.Log("Mouse ScrollWheel");
-        }
-        if(Input.GetAxisRaw("P3 H") != 0)
-        {
-            Debug.Log("P3 H");
-        }
-        if (Input.GetAxisRaw("P3 V") != 0)
-        {
-            Debug.Log("P3 V");
-        }
-    }
+    //if (Input.GetKeyDown(KeyCode.Space))
+
 }
+

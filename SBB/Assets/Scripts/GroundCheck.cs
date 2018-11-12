@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GroundCheck : MonoBehaviour {
-    public PlayerController P1; 
-   // public float speed;
+    public PlayerController parent;
+    public GameObject Fist;
+    public Hitbox combat;
+    public Text winText;
 
-   // private Rigidbody rb;
+    // public float speed;
+
+    // private Rigidbody rb;
 
     // Use this for initialization
     void Start () {
@@ -24,21 +29,42 @@ public class GroundCheck : MonoBehaviour {
 
         if (other.gameObject.tag == "Ground")
         {
+            parent.onGround = true;
             Debug.Log("Ground Check Works!");
-            P1.onGround = true;
-            //Vector3 movement = new Vector3(moveHorizontal, 1.0f, 0.0f);
-
-           // rb.AddForce(movement * speed);
+        }
+        if (other.gameObject.tag == "Platform")
+        {
+            parent.onPlatform = true;
+            Debug.Log("Platform Check Works!");
+        }
+        if (other.gameObject.tag == "Deathblock")
+        {
+            parent.gameObject.SetActive(false);
+            Debug.Log("Deathblock works!");
+            winText.text = "Game! The Winner is...YOU!";
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Platform")
         {
-            Debug.Log("Ground Check Exitting!");
-            P1.onGround = false;
+            parent.onGround = false;
+            parent.onPlatform = false;
+            Debug.Log("Ground Check Exiting!");
+        }
+        if(other.gameObject.tag == "Deathblock")
+        {
+            parent.gameObject.SetActive(false);
+            Fist.gameObject.SetActive(false);
+            Debug.Log("Deathblock works!");
+            winText.text = "Game! The Winner is...YOU!";
         }
     }
 }
 
+/* else if ((parent.moveVertical< 0.0) && (parent.onGround = true))
+        {
+            C.enabled = false;
+            Debug.Log("Drop Works!");
+        } */

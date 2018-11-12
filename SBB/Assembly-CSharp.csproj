@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Player2Controller.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Scotty.cs" />
+    <Compile Include="Assets\Scripts\WinText.cs" />
     <Compile Include="Assets\Select.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Xazel/Documents/UCR/CutieHack/ScottyBashBros/SBB/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

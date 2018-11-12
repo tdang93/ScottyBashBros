@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformCheck : MonoBehaviour {
-    public PlayerController parent;
+    
 	// Use this for initialization
 	void Start () {
 		
